@@ -26,5 +26,5 @@ app.use((error: Error, req: Request, res: Response) => {
   return res.status(500).json(errorObject)
 })
 app.listen(Number(3001), () => {
-  console.log('App ON LINE')
+  Logger.info('App ON LINE')
 });

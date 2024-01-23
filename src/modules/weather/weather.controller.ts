@@ -22,14 +22,6 @@ export default class WeatherController {
     return res.json(response)
   }
 
-  public async filterWheater(req: Request, res: Response): Promise<Response> {
-    const historyWeatherService = new HistoryWeatherService()
-
-    const response = await historyWeatherService.filterWheater()
-
-    return res.json(response)
-  }
-
   public async createWebhook(req: Request, res: Response): Promise<Response> {
     const webhookURLService = new CreateWebhookURLService();
 
