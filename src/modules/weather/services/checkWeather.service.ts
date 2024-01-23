@@ -1,15 +1,10 @@
 import axios from 'axios';
 import { api, appid, lang, q, units } from "@config/enums/weather.enum";
-import prismaClient from "@config/db/conn.prisma";
 import { ICheckWeather } from "@shared/types/CheckWeather";
-import { IWebhookURL } from "@shared/types/WebhookURL";
 import Logger from "@shared/logger/Logger";
+import prismaClient from "@config/db/conn.prisma";
 import SendWebhook from './sendWebhook.service';
-
-
 class CheckWeatherService {
-
-
   public async get({ city, country }: ICheckWeather) {
     const sendWebhook = new SendWebhook()
 

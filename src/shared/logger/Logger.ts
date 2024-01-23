@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 class LoggerFactory {
   static create () {
-    const day = format(new Date(), "MM/dd/yyyy")
+    const day = format(new Date(), "yyyymmdd")
     const cfg = {
       levels: winston.config.syslog.levels,
       format: winston.format.combine(
