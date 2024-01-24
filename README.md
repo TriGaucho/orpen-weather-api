@@ -23,39 +23,42 @@ Api de consulta do clima, via Open Weather.
 * **date-fns** para trabalhar com datas Javascript.
 * **@babel/*** para trasnpilação e build
 
-
 ## Rodar o projeto no Docker
 
 Via CMD, executar o comando no diretorio raiz do projeto:
+
 ~~~bash
 docker-compose up
 ~~~
 
 ## Rodar o projeto Local
+
 1. Criar o arquivo **.env** com os seguintes valores:
 
-      DATABASE_URL="mongodb+srv://diogo254:kInjCdD7rcLiy7FM@cluster0.rxzkzzr.mongodb.net/cluster0?retryWrites=true&w=majority"
+      DATABASE_URL="mongodb+srv://diogo254:<kInjCdD7rcLiy7FM@cluster0.rxzkzzr.mongodb.net>/cluster0?retryWrites=true&w=majority"
 
       KEY_WEATHER=d81e162ef8df5d5b622c6337b2e82a74
 
 2. Instalar as dependências:
 
   ```bash
-    $ npm install
+    npm install
   ```
 
 3. Executar com:
 
   ```bash
-    $ npm run dev
+    npm run dev
   ```
+
 ---
 
 ## Rotas e parametros
 
 *Orpen Weather API* roda na porta 3001, tanto via docker quanto local. Certifique-se de ter essa porta disponivel.
 
-### Endpoints:
+### Endpoints
+
 * **get - localhost:3001/weather:** consulta o clima de uma cidade e envia dados consultados aos webhooks cadastrados.
 * **get - localhost:3001/history:** historico de consultas do clima.
 * **post - localhost:3001/webhook:** cadastra um webhook para receber notificação de quando o clima de uma cidade for consultado.
@@ -67,6 +70,7 @@ Param Query   | Tipe | Tamanho | Obrigatório
 city | string | livre | sim
 country | string | 2 | sim
 ---
+
 ### Rota /webhook
 
 Param Query | Tipe | Tamanho | Obrigatório
@@ -76,4 +80,5 @@ country | string | 2 | sim
 webhookURL | string | livre | sim
 
 ### Exemplo Collection
-Você encontra um exemplo de collection no direório: *collection\Orpen Weather API.postman_collection.json*
+
+Você pode encontrar um exemplo de collection no direório: *collection\Orpen Weather API.postman_collection.json*
