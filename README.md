@@ -17,7 +17,7 @@ Api de consulta do clima, via Open Weather.
 
 * **NodeJS** com Express e Typescript.
 * **MongoDB** banco de dados.
-* **Prisma** ORM NodeJS.
+* **Mongoose** para conexão o MongoDB.
 * **Axios** como cliente HTTP.
 * **winston** para geração de logs.
 * **date-fns** para trabalhar com datas Javascript.

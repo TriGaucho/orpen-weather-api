@@ -28,6 +28,6 @@ app.use((error: Error, req: Request, res: Response) => {
 
   return res.status(500).json(errorObject)
 })
-app.listen(Number(3001), () => {
+app.listen(Number(3000), () => {
   Logger.info('App ON LINE')
 });
