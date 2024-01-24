@@ -4,10 +4,8 @@ services:
   app:
     container_name: orpen-weather
     build: .
-    env_file:
-      - .env
     environment:
-      - DATABASE_URL="mongodb+srv://diogo254:kInjCdD7rcLiy7FM@cluster0.rxzkzzr.mongodb.net/cluster0?retryWrites=true&w=majority"
+      - DATABASE_URL=mongodb+srv://diogo254:kInjCdD7rcLiy7FM@cluster0.rxzkzzr.mongodb.net/cluster0?retryWrites=true&w=majority
       - KEY_WEATHER=d81e162ef8df5d5b622c6337b2e82a74
     volumes:
       - .:/user/src/app

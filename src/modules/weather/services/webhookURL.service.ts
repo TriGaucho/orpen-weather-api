@@ -1,10 +1,10 @@
 import { IWebhookURL } from "@shared/types/WebhookURL";
-import prismaClient from "@config/db/conn.prisma";
+import { WebHook } from "../models/WebHook";
 
 class CreateWebhookURLService {
   public async post(data: IWebhookURL) {
-    const webhookURL = await prismaClient.webhookURL.create({
-      data
+    const webhookURL = await WebHook.create({
+      ...data
     })
     return webhookURL
   }

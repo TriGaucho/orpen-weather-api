@@ -2,11 +2,14 @@ import express, { Request,  Response } from 'express';
 import routes from './routes';
 import Logger from '@shared/logger/Logger';
 import AppErrorMiddlewares from '@shared/middlewares/AppErrorMiddlewares';
+import DataBase from '@config/db/conn.mongo'
 
 const app = express();
 app.use(express.json());
 
 app.use(routes)
+
+DataBase();
 
 app.use((error: Error, req: Request, res: Response) => {
   Logger.error(error)

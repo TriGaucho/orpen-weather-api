@@ -1,7 +1,7 @@
-import prismaClient from "@config/db/conn.prisma";
+import { Weather } from "../models/Weather";
 class SaveWeatherHistoryService {
   public async get() {
-    const historyWeather = await prismaClient.weatherCheck.findMany();
+    const historyWeather = await Weather.find();
 
     return historyWeather
   }
