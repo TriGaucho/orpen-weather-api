@@ -21,7 +21,7 @@ class SendWebhook {
       try {
         await axios.post(w.webhookURL, weather)
       } catch (error) {
-        Logger.error(`Error send for WebHook: ${w.webhookURL}`)
+        Logger.error(`Error send for WebHook: ${w._id}/${w.webhookURL}`)
         return error
       }
     })

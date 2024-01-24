@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
 import CheckWeatherService from './services/checkWeather.service';
-import HistoryWeatherService from './services/historyWeather.service'
-import CreateWebhookURLService from './services/webhookURL.service'
-
+import HistoryWeatherService from './services/historyWeather.service';
+import CreateWebhookURLService from './services/webhookURL.service';
 export default class WeatherController {
   public async checkWeather(req: Request, res: Response): Promise<Response> {
     const weatherService = new CheckWeatherService();
