@@ -1,14 +1,15 @@
+import express, { NextFunction, Request, Response } from 'express';
 import Logger from "../logger/Logger"
+import { ApiError } from '@shared/helpers/api.erros';
 
-class AppErrorMiddlewares {
-  public readonly message: string
-  public readonly statusCode: number
+export const AppErrorMiddlewares = (error: Error & Partial<ApiError>,
+  req: Request,
+  res: Response,
+  next: NextFunction) => {
 
-  constructor(message: string, statusCode = 400) {
-    this.message = message
-    this.statusCode = statusCode
-    Logger.error({message, statusCode})
-  }
+  const statusCode = error.statusCode ?? 500;
+  const message = error.statusCode ? error.message : 'Internal Server Error'
+
+  Logger.error({statusCode, message});
+  return res.status(statusCode).json({ message })
 }
-
-export default AppErrorMiddlewares;

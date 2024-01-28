@@ -14,7 +14,8 @@ const weatherSchmea = new mongoose.Schema({
     type: Date
   },
   weatherData: {
-    type: JSON
+    type: JSON,
+    default: null
   }
 }
 );

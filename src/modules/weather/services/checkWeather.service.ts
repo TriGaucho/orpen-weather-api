@@ -4,29 +4,28 @@ import { ICheckWeather } from "@shared/types/CheckWeather";
 import Logger from "@shared/logger/Logger";
 import { Weather } from '../models/Weather';
 import SendWebhook from './sendWebhook.service';
+import { ApiError } from '@shared/helpers/api.erros';
 class CheckWeatherService {
   public async get({ city, country }: ICheckWeather) {
     const sendWebhook = new SendWebhook()
 
-    try {
-      const response = await axios.get(`${api}?q=${city},${country}&units=${units}&lang=${lang}&appid=${appid}`);
+    const response = await axios.get(`${api}?q=${city},${country}&units=${units}&lang=${lang}&appid=${appid}`)
+    .catch((error) => {
+      Logger.error(error.response.data)
+      // throw new ApiError('Erro em CheckWeatherService.get', 400)
+    });
 
-      const weatherChecks = await Weather.create({
-        city,
-        country,
-        requestDate: new Date(),
-        weatherData: response.data.cod == '404' ? null : response.data
-      })
+    const weatherChecks = await Weather.create({
+      city,
+      country,
+      requestDate: new Date(),
+      weatherData: response?.data.cod == '404' ? null : response?.data
+    })
 
-      Logger.info(`Created climate query from ${city}/${country} `)
+    Logger.info(`Created climate query from ${city}/${country} `)
 
-      await sendWebhook.send(weatherChecks as ICheckWeather)
-
-      return weatherChecks;
-    } catch (error) {
-      Logger.error(error)
-      return error
-    }
+    await sendWebhook.send(weatherChecks as ICheckWeather)
+    return weatherChecks;
   }
 };
 

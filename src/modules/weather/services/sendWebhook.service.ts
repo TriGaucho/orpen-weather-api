@@ -7,10 +7,11 @@ class SendWebhook {
 
   public async send(weather: ICheckWeather,) {
     const webhook: IWebhookURL[] = await WebHook.find({
-      where: {
-        city: weather.city,
-        country: weather.country,
-      }
+      $and: [
+        { city: weather.city },
+        { country: weather.country }
+      ]
+
 
     })
 
