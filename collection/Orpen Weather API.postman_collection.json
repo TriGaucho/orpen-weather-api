@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "53330f00-9ee4-4095-99bc-7cd6f39f727e",
-		"name": "Orpen Weather API",
+		"_postman_id": "3783df0e-37a0-4f88-8c05-21b3d057013d",
+		"name": "Orpen Weather API Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7969716"
 	},
@@ -59,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"city\": \"Canoas\",\r\n    \"country\": \"BR\",\r\n    \"webhookURL\": \"https://minhaUrlCallback.com.br\"\r\n}\r\n",
+					"raw": "{\r\n    \"city\": \"Canoas\",\r\n    \"country\": \"BR\",\r\n    \"webhookURL\": \"https://webhook.site/14df551b-9c4f-4177-9a25-9d3c017b4164\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
