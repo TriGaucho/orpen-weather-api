@@ -48,6 +48,7 @@ docker-compose up
 1. Criar o arquivo .env com os seguintes valores:
 
   DATABASE_URL="mongodb+srv://diogo254:kInjCdD7rcLiy7FM@cluster0.rxzkzzr.mongodb.net/cluster0?retryWrites=true&w=majority"
+  
   KEY_WEATHER=d81e162ef8df5d5b622c6337b2e82a74
 
 2. Executar com:
